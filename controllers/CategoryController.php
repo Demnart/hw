@@ -37,4 +37,17 @@ class CategoryController extends AppController
         return $this->render('view',compact('products','pages','category'));
 
     }
+
+    public function actionSearch()
+    {
+        $name = trim(\Yii::$app->request->get('search'));
+        $query = Products::find()->where(['like' ,'name', $name]);
+        $pages = new Pagination(['totalCount' => $query->count(), 'pageSize'=>3,'forcePageParam'=>false,'pageSizeParam'=>false]);
+        $products = $query->offset($pages->offset)
+            ->limit($pages->limit)
+            ->all();
+
+        $this->setMeta('E-SHOPPER | ' . $name);
+        return $this->render('search',compact('products','pages','name'));
+    }
 }
