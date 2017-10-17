@@ -32,7 +32,6 @@ class CategoryController extends AppController
         $products = $query->offset($pages->offset)
             ->limit($pages->limit)
             ->all();
-
         $this->setMeta('E-SHOPPER | '. $category->name,$category->keywords,$category->description);
         return $this->render('view',compact('products','pages','category'));
 
