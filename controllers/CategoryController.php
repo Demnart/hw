@@ -12,6 +12,7 @@ namespace app\controllers;
 use app\models\Category;
 use app\models\Products;
 use yii\data\Pagination;
+use yii\web\HttpException;
 
 class CategoryController extends AppController
 {
@@ -27,6 +28,10 @@ class CategoryController extends AppController
     {
         $id = \Yii::$app->request->get('id');
         $category = Category::findOne($id);
+        if (!$category)
+        {
+            throw new HttpException(404,'Такой категории не существует');
+        }
         $query = Products::find()->where(['category_id' => $id]);
         $pages = new Pagination(['totalCount' => $query->count(), 'pageSize'=>3,'forcePageParam'=>false,'pageSizeParam'=>false]);
         $products = $query->offset($pages->offset)
