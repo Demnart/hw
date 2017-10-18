@@ -312,7 +312,7 @@ AppAsset::register($this);
          'id' => 'cart',
          'footer' =>' <button type="button" class="btn btn-default" data-dismiss="modal">Продолжить</button>
                       <button type="button" class="btn btn-success">Оформить заказ</button>
-                      <button type="button" class="btn btn-danger">Удалить все товары</button>',
+                      <button type="button" class="btn btn-danger" onclick="removeAll()">Удалить все товары</button>',
 ]);
 
 Modal::end();?>

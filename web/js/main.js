@@ -14,6 +14,23 @@
      $('#cart .modal-body').html(cart);
      $('#cart').modal();
  }
+ function removeAll() {
+     $.ajax({
+         url: '/cart/remove-all',
+         method: 'GET',
+         success: function (cart) {
+             if(!cart)
+             {
+                 alert('error');
+             }
+             showCart(cart);
+             // console.log(cart);
+         },
+         error: function () {
+             alert('Error')
+         }
+     });
+ }
 
 $('.add-to-cart').on('click',function (e) {
     e.preventDefault();
