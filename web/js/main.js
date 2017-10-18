@@ -11,6 +11,11 @@
      }
  );
 
+ function showCart(crs) {
+     $('#cart .modal-body').html(crs);
+     $('#cart').modal();
+ }
+
  $('.add-to-cart').on('click',function (e) {
      e.preventDefault();
     var id = $(this).data('id');
@@ -19,7 +24,8 @@
         data: {id: id},
         method: 'GET',
         success:function (crs) {
-            console.log(crs);
+            showCart(crs)
+            // console.log(crs);
         },
         error:function () {
             alert('Ошибка');
