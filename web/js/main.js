@@ -23,7 +23,7 @@ $('.add-to-cart').on('click',function (e) {
              {
                  alert('error');
              }
-            console.log('cart');
+            console.log(cart);
         },
         error: function () {
             alert('Error')
