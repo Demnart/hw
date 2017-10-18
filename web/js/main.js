@@ -10,6 +10,20 @@
     speed:300,
      }
  );
+ function clearCart() {
+     $.ajax({
+         url: '/cart/delete-all',
+         method: 'GET',
+         success:function (crs) {
+             showCart(crs)
+             // console.log(crs);
+         },
+         error:function () {
+             alert('Ошибка');
+         }
+
+     })
+ }
 
  function showCart(crs) {
      $('#cart .modal-body').html(crs);
