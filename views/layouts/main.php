@@ -3,6 +3,7 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+use yii\bootstrap\Modal;
 use yii\helpers\Html;
 use app\assets\AppAsset;
 use app\assets\LtAppAsset;
@@ -305,7 +306,16 @@ AppAsset::register($this);
 
 </footer><!--/Footer-->
 
+<?php Modal::begin([
+         'size' =>'modal-lg',
+         'header' => '<h2>Корзина</h2>',
+         'id' => 'cart',
+         'footer' =>' <button type="button" class="btn btn-default" data-dismiss="modal">Продолжить</button>
+                      <button type="button" class="btn btn-success">Оформить заказ</button>
+                      <button type="button" class="btn btn-danger">Удалить все товары</button>',
+]);
 
+Modal::end();?>
 <?php $this->endBody() ?>
 </body>
 </html>

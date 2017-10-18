@@ -25,7 +25,7 @@
                 <td><?= $session['cart.qty']?></td>
             </tr>
             <tr>
-                <td colspan="4"> Общее цена</td>
+                <td colspan="4"> Общая цена</td>
                 <td><?= $session['cart.sum']?></td>
             </tr>
         </tbody>
