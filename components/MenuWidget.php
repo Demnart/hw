@@ -25,9 +25,15 @@ extends Widget
 
     public function run()
     {
+        $menu = \Yii::$app->cache->get('menu');
+        if ($menu)
+        {
+            return $menu;
+        }
         $this->data = Category::find()->asArray()->indexBy('id')->all();
         $this->tree = $this->getTree();
         $this->html= $this->getMenuHtml($this->tree);
+        \Yii::$app->cache->set('menu',$this->html,120);
         return $this->html;
     }
 
