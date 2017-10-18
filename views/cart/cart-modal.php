@@ -11,12 +11,12 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($session as $id=>$item):?>
+            <?php foreach ($session['cart'] as $id=>$item):?>
             <tr>
                 <td><?= $item['img']?></td>
-                <td>><?= $item['name']?></td>
-                <td>><?= $item['qty']?></td>
-                <td>><?= $item['price']?></td>
+                <td><?= $item['name']?></td>
+                <td><?= $item['qty']?></td>
+                <td><?= $item['price']?></td>
                 <td><span class="glyphicon glyphicon-remove text-danger" aria-hidden="true"></td>
             </tr>
             <?php endforeach;?>
